@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.TestConfiguration;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
@@ -16,16 +18,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @ActiveProfiles("test")
-@SpringJUnitConfig(AppConfig.class)
+//@SpringJUnitConfig(AppConfig.class)
 
 class FavorServiceTest {
     @Autowired
     private  FavorService favorService;
 
-//    @TestConfiguration
-//    @ComponentScan("service")
-//    public static class FavorServiceTestConfig {
-//    }
+    @TestConfiguration
+    @ComponentScan("ir.maktab.hw20")
+    public static class FavorServiceTestConfig {
+    }
 
 
     @Test
