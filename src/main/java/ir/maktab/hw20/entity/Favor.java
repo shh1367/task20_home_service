@@ -17,10 +17,17 @@ public class Favor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long serviceId;
+    private Long favorId;
     @Column
-    private String serviceName;
+    private String favorName;
     @Column
-    private String ServiceCategory;
+    private String favorCategory;
+    @Column
+    private Long  favorBasePrice;
+    @Column
+    private String favorDescription;
+
+
+
 
 }

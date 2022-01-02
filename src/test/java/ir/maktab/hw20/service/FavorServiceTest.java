@@ -1,6 +1,5 @@
 package ir.maktab.hw20.service;
 
-import ir.maktab.hw20.config.AppConfig;
 import ir.maktab.hw20.entity.Favor;
 
 import org.junit.jupiter.api.Test;
@@ -10,7 +9,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -33,12 +31,14 @@ class FavorServiceTest {
     @Test
     void testSaveFavor_isOk() {
         Favor favor = Favor.builder()
-                .serviceName("interior_Decoration")
-                .ServiceCategory("decoration")
+                .favorName("interior_Decoration")
+                .favorCategory("decoration")
+                .favorBasePrice(1235L)
+                .favorDescription("this is a description")
                 .build();
         favorService.save(favor);
-        Favor result = favorService.loadByServiceName(favor.getServiceName());
-        assertEquals(favor.getServiceName(), result.getServiceName());
+        Favor result = favorService.loadByServiceName(favor.getFavorName());
+        assertEquals(favor.getFavorName(), result.getFavorName());
 
 
     }
